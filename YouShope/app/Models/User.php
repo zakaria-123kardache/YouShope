@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Produit::class);
     }
+
+    public function commande()
+    {
+        return $this->hasMany(Commande::class);
+    }
 }

@@ -11,13 +11,24 @@ class Produit extends Model
 
     protected $fillable = [
         'name',
-        'photo',
+        'photo',        
         'price',
         'description',
+        'categorie_id',
+        'user_id',
     ];
 
     public function user()
     {
         return $this->hasOne(User::class);
+    }
+    public function categorie()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
+    
+    public function produitCommandes()
+    {
+        return $this->hasMany(ProduitCommande::class);
     }
 }
