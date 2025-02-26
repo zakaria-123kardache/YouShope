@@ -200,7 +200,7 @@
                             <h5 class="mb-0">Applications</h5>
                         </div>
                         <div class="row g-6 mb-6">
-                            <?php foreach ($categories as $categorie): ?>
+
                                 <div class="col-12 col-md-6 col-lg-4">
                                     <div class="card shadow-sm border-0 h-100">
                                         <div class="card-body">
@@ -208,9 +208,9 @@
                                                 <div class="d-flex align-items-center">
                                                     <img
                                                         alt="..."
-                                                        src="<?= $categorie->photo ?>"
+                                                        src=""
                                                         class="avatar avatar-sm rounded-circle me-2" />
-                                                    <h5 class="card-title mb-0"><?= $categorie->name ?></h5>
+                                                    <h5 class="card-title mb-0"></h5>
                                                 </div>
                                                 <div class="d-flex">
                                                     <a href="#"
@@ -243,7 +243,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            <?php endforeach; ?>
+                          
                         </div>
                         <div class="card-footer border-0 py-5">
                             <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
