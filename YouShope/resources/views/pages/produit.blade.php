@@ -113,13 +113,13 @@
                     <!-- Navigation -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active text-warning" aria-current="page" href="/dashbordadmin">
+                            <a class="nav-link" aria-current="page" href="/dashbordadmin">
                                 <i class="bi bi-house"></i> Dashboard
                             </a>
                         </li>
-      
+
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/produit">
+                            <a class="nav-link active text-warning" aria-current="page" href="/produit">
                                 <i class="bi bi-file-text"></i> produit
                             </a>
                         </li>
@@ -198,7 +198,61 @@
                             <h5 class="mb-0">Applications</h5>
                         </div>
                         <div class="row justify-content-start">
+                            <?php foreach ($produit as $produite): ?>
+                            <div class="col-md-4 p-5">
+                                <div class="product-card bg-white rounded-4 shadow-sm h-100 position-relative">
+                                    <span class="badge bg-danger">New</span>
+                                    <div class="overflow-hidden">
+                                        <img src="<?= $produite->photo ?>" class="product-image w-100" alt="Product">
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="fw-bold mb-3"><?= $produite->name ?></h5>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="me-2">
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star-half-alt text-warning"></i>
+                                            </div>
 
+                                            <div>
+                                                <td>
+                                                    <a class="text-heading font-semibold"> <?= $produite->prix ?> $$</a>
+                                                </td>
+                                            </div>
+                                        </div>
+                                        <p class="text-muted mb-4"><?= $produite->description ?></p>
+
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <a href="#" class="btn d-inline-flex btn-sm btn-warning mx-1"
+                                                data-bs-toggle="modal" data-bs-target="#editCourseModal"
+                                                onclick="loadSallData(this)"
+                                                data-id="<?= htmlspecialchars($produite->id) ?>"
+                                                data-name="<?= htmlspecialchars($produite->name) ?>"
+                                                data-description="<?= htmlspecialchars($produite->description) ?>"
+                                                data-location="<?= htmlspecialchars($produite->prix) ?>"
+                                                data-photo="<?= htmlspecialchars($produite->photo) ?>">
+                                                <span class="pe-2">
+                                                    <i class="bi bi-pencil"></i>
+                                                </span>
+                                                Edit
+                                            </a>
+
+                                            <form action="{{ route('produit.delete', $produite->id) }}" method="POST"
+                                                style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="btn d-inline-flex btn-sm btn-danger mx-1">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
 
                         </div>
                     </div>
@@ -208,7 +262,120 @@
         </div>
     </div>
 
- 
+
+
+    <!-- start Modal creat-->
+    <div class="modal fade" id="creatModal" tabindex="-1" aria-labelledby="creatModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Creat prduit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="name" class="form-label">product name</label>
+                            <input type="text" class="form-control" name="name" id="name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="courdescription" class="form-label">description</label>
+                            <input type="text" name="description" class="form-control" id="description" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="prix" class="form-label">prix</label>
+                            <input type="number" name="prix" class="form-control" id="prix" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Photo</label>
+                            <input type="text" name="photo" id="CRedit-photo" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="categorie_id" class="form-label">categorie</label>
+                            <select name="categorie_id" id="categorie_id" class="form-control" required>
+                                <option value="">categorie</option>
+                                @foreach($categories as $categorie)
+                                    <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
+
+                        <button type="submit" class="btn btn-primary">submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit sall Modal -->
+    <div class="modal fade" id="editCourseModal" tabindex="-1" aria-labelledby="editCourseModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCourseModalLabel">Edit Produit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{{ route('produit.update', ['id' => $produite->id]) }}"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="produit_id" id="produit_id">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">edit sall name</label>
+                            <input type="text" class="form-control" name="name" id="editname" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">edit description</label>
+                            <input type="text" name="description" class="form-control" id="editdescription"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="prix" class="form-label">edit prix</label>
+                            {{-- <input type="number" name="prix" class="form-control" id="prix" required> --}}
+                            <input type="number" name="prix" class="form-control" id="editprix" required>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label>edit Photo</label>
+                            <input type="text" name="photo" id="editphoto" class="form-control">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+    <script>
+        function loadSallData(element) {
+            document.getElementById('produit_id').value = element.getAttribute('data-id');
+            document.getElementById('editname').value = element.getAttribute('data-name');
+            document.getElementById('editdescription').value = element.getAttribute('data-description');
+            document.getElementById('editprix').value = element.getAttribute('data-prix');
+            document.getElementById('editphoto').value = element.getAttribute('data-photo');
+        }
+    </script>
+
 </body>
 
 </html>
