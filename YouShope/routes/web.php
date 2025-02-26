@@ -20,13 +20,18 @@ Route::get('/', function () {
 });
 
 
-//================== §! Product !$ =======================//
+ //================== §! Product !$ =======================//
+//=======================================================//
 Route::get('/produit',[ProduitController::class, 'produit'])->name('produit');
 Route::post('/produit', [ProduitController::class, 'create'])->name('produit');
 Route::delete('/produit/{id}', [ProduitController::class, 'delete'])->name('produit.delete');
 Route::post('/produit/update/{id}', [ProduitController::class, 'update'])->name('produit.update');
 
 
-//================== §! categorie !$ =======================//
+ //================== §! categorie !$ ====================//
+//=======================================================//
 
 Route::get('categorie',[CategorieController::class, 'categorie'])->name('categorie');
+Route::post('/categorie', [CategorieController::class, 'create'])->name('categorie');
+Route::delete('/categorie/{id}', [CategorieController::class, 'delete'])->name('categorie.delete');
+Route::post('/categorie/update/{id}', [CategorieController::class, 'update'])->name('categorie.update');

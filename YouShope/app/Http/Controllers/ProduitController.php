@@ -40,7 +40,8 @@ class ProduitController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'prix'  => $request->prix,
-            'photo'  => $request->photo
+            'photo'  => $request->photo,
+            'categorie_id' => $request->categorie_id,
         ]);
         return redirect()->route('produit');
     }

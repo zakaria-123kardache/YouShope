@@ -23,16 +23,17 @@ class CategorieController extends Controller
     }
     public function delete($id)
     {
-        $produit = Categorie::find($id);
-        $produit->delete();
+        $categorie = Categorie::find($id);
+        $categorie->delete();
         return redirect()->route('categorie');
     }
     public function update(Request $request)
     {
-        $produit = Categorie::find($request->categorie_id);
-        $produit::categorie([
+        $categorie = Categorie::find($request->categorie_id);
+        $categorie->update([
             'name' => $request->name,
             'photo'=> $request->photo,
         ]);
+        return redirect()->route('categorie');
     }
 }

@@ -123,6 +123,11 @@
                                 <i class="bi bi-file-text"></i> produit
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="./categorie">
+                                <i class="bi bi-bar-chart"></i> Categorie
+                            </a>
+                        </li>
                     </ul>
                     <!-- Divider -->
                     <hr class="navbar-divider my-5 opacity-20">
@@ -203,7 +208,7 @@
                                 <div class="product-card bg-white rounded-4 shadow-sm h-100 position-relative">
                                     <span class="badge bg-danger">New</span>
                                     <div class="overflow-hidden">
-                                        <img src="<?= $produite->photo ?>" class="product-image w-100" alt="Product">
+                                        <img src="<?= $produite->photo ?>" class="product-image w-50" alt="Product">
                                     </div>
                                     <div class="p-4">
                                         <h5 class="fw-bold mb-3"><?= $produite->name ?></h5>
@@ -347,6 +352,15 @@
                             {{-- <input type="number" name="prix" class="form-control" id="prix" required> --}}
                             <input type="number" name="prix" class="form-control" id="editprix" required>
 
+                        </div>
+                        <div class="mb-3">
+                            <label for="categorie_id" class="form-label">categorie</label>
+                            <select name="categorie_id" id="categorie_id" class="form-control" required>
+                                <option value="">categorie</option>
+                                @foreach($categories as $categorie)
+                                    <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mb-3">
