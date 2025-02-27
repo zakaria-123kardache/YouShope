@@ -60,6 +60,24 @@
                 </div>
                 <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
             </div>
+            
+            <?php foreach ($produit as $produite): ?>
+            <div class="pro">
+                <img src="{{ $produite->photo }}" alt="">
+                <div class="des">
+                    <h5>{{ $produite->name }}</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>{{ $produite->prix }}</h4>
+                </div>
+                <a href="#"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <?php endforeach; ?>
         </div>
 
     </section>
