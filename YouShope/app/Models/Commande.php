@@ -15,7 +15,6 @@ class Commande extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
     public function produitCommandes()
     {
         return $this->hasMany(ProduitCommande::class);

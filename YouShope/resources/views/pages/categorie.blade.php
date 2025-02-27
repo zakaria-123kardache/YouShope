@@ -204,25 +204,22 @@
                             <h5 class="mb-0">Applications</h5>
                         </div>
                         <div class="row g-6 mb-6">
-
                             <?php foreach ($categorie as $categoriee): ?>
-
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="card shadow-sm border-0 h-100">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center mb-3">
                                             <div class="d-flex align-items-center">
-                                                <img alt="..." src="<?= $categoriee->name ?>"
-                                                    class="avatar avatar-sm rounded-circle me-2" />
-                                                <h5 class="card-title mb-0"><?= $categoriee->photo ?></h5>
+                                                <img alt="Categorie Image" src="<?= $categoriee->photo ?>" class="avatar avatar-sm rounded-circle me-2" />
+                                                <h5 class="card-title mb-0"><?= $categoriee->name ?></h5>
                                             </div>
                                             <div class="d-flex">
                                                 <a href="#" class="btn d-inline-flex btn-sm btn-warning mx-1"
                                                     data-bs-toggle="modal" data-bs-target="#editcategorieModal"
                                                     onclick="loadCategorieData(this)"
                                                     data-id="<?= htmlspecialchars($categoriee->id) ?>"
-                                                    data-id="<?= htmlspecialchars($categoriee->name) ?>"
-                                                    data-name="<?= htmlspecialchars($categoriee->photo) ?>">
+                                                    data-name="<?= htmlspecialchars($categoriee->name) ?>"
+                                                    data-photo="<?= htmlspecialchars($categoriee->photo) ?>">
                                                     <span class="pe-2">
                                                         <i class="bi bi-pencil"></i>
                                                     </span>
@@ -250,7 +247,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <?php endforeach; ?>
 
 
@@ -319,7 +315,8 @@
                     </div>
                     <div class="modal-body">
 
-                        <form method="POST" action="{{ route('categorie.update', ['id' => $categoriee->id]) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('categorie.update', ['id' => $categoriee->id]) }}"
+                            enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="categorie_id" id="categorie_id">
                             <div class="mb-3">
@@ -347,11 +344,10 @@
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
         </script>
         <script>
-            function loadCategorieData(e)
-            {
-            document.getElementById('categorie_id').value = e.getAttribute('data-id');
-            document.getElementById('editname').value = e.getAttribute('data-name');
-            document.getElementById('editphoto').value = e.getAttribute('data-photo');
+            function loadCategorieData(e) {
+                document.getElementById('categorie_id').value = e.getAttribute('data-id');
+                document.getElementById('name').value = e.getAttribute('data-name');
+                document.getElementById('photo').value = e.getAttribute('data-photo');
             }
         </script>
 </body>
