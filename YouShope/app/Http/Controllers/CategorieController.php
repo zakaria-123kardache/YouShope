@@ -8,16 +8,22 @@ use Illuminate\Http\Request;
 class CategorieController extends Controller
 {
     //
-    public function categorie ()
+    public function categorie()
     {
         $categorie = Categorie::all();
-        return view('pages.categorie',compact('categorie'));
+        return view('pages.categorie', compact('categorie'));
     }
+    public function home()
+    {
+        $categorie = Categorie::all();
+        return view('home', compact('categorie'));
+    }
+
     public function create(Request $request)
     {
         Categorie::create([
             'name' => $request['name'],
-            'photo' => $request['photo'], 
+            'photo' => $request['photo'],
         ]);
         return redirect()->route('categorie');
     }
@@ -32,7 +38,7 @@ class CategorieController extends Controller
         $categorie = Categorie::find($request->categorie_id);
         $categorie->update([
             'name' => $request->name,
-            'photo'=> $request->photo,
+            'photo' => $request->photo,
         ]);
         return redirect()->route('categorie');
     }

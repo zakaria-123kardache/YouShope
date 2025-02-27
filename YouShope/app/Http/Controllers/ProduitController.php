@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 class ProduitController extends Controller
 {
     //
+
+    public function home()
+{
+    $produit = Produit::all();
+    return view('home', compact('produit'));
+}
+
     public function produit()
     {
         $produit = Produit::all();
