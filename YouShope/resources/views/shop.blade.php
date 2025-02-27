@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +19,8 @@
         <div>
             <ul id="navbar">
                 <a href="#" id="close"><i class='fa fa-close'></i></a>
-                <li><a class="active" href="/">Home</a></li>
-                <li><a href="/shop">Shop</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a class="active" href="/shop">Shop</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -33,30 +34,17 @@
         </div>
     </section>
 
-    <section id="hero">
-        <h4>Trade in Offer</h4>
-        <h2>Super Value Deals</h2>
-        <h1>On all products</h1>
-        <p>Lorem ipsum dolor</p>
-        <button>Shop Now</button>
+    <section id="page-header">
+        <h2>#stay at home</h2>
+        <p>Lorem Lorem ipsum dolor sit.</p>
         <a href="#" class="to-top">
-            <p class="to-top--title">BACK <br> TO TOP</p>
+            <i class="fas fa-chevron-up"></i>
         </a>
     </section>
 
-    <section id="feature" class="section-p1">
-        <div class="fe-box">
-            <img src="img/features/f1.png" alt="">
-            <h6>Lorem, ipsum.</h6>
-        </div>
-       
-    </section>
-
     <section id="product1" class="section-p1">
-        <h2>Featured Products</h2>
-        <p>Summer Collection</p>
         <div class="pro-container">
-            <div class="pro">
+            <div class="pro" onclick="window.location.href='sproduct.html'">
                 <img src="img/products/f1.jpg" alt="">
                 <div class="des">
                     <span>Adiddas</span>
@@ -72,43 +60,16 @@
                 </div>
                 <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
             </div>
-
-            
         </div>
 
     </section>
 
-    <section id="banner" class="section-m1">
-        <h4>Repair Services</h4>
-        <h2>Upto <span>70% Off</span>- All T-shirts & Accessories</h2>
-        <button class="normal">Explore More</button>
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     </section>
 
-    <section id="product1" class="section-p1">
-        <h2>New Arrivals</h2>
-        <p>Summer Collection</p>
-        <div class="pro-container">
-            <div class="pro">
-                <img src="img/products/n1.jpg" alt="">
-                <div class="des">
-                    <span>Adiddas</span>
-                    <h5>Cotton shirts pure cotton</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$78</h4>
-                </div>
-                <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-            </div>
-
-            
-        </div>
-
-    </section>
 
     <section id="newsletter" class="section-p1 section-m1">
         <div class="newstext">
@@ -172,14 +133,12 @@
     </div>
 
     <div class="copyright">
-        <p>@Youshop@2025</p>
+        <p>@Youshop@</p>
     </div>
 
    </footer>
 
-    <script src="{{ asset('assets/js/app.js') }}"></script>
+   <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 </html>
-
-
 
