@@ -59,7 +59,7 @@
         <p>Summer Collection</p>
         <div class="pro-container">
             <?php foreach ($produit as $produite): ?>
-            <div class="pro">
+            <div class="pro" onclick="window.location.href='{{ url('/produitdetai/' . $produite->id) }}'">
                 <img src="{{ $produite->photo }}" alt="">
                 <div class="des">
                     <h5>{{ $produite->name }}</h5>
