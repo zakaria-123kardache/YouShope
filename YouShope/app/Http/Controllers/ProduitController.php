@@ -11,16 +11,20 @@ class ProduitController extends Controller
     //
 
     public function home()
-{
-    $produit = Produit::all();
-    return view('home', compact('produit'));
-}
-
+    {
+        $produit = Produit::all();
+        return view('home', compact('produit'));
+    }
+    public function show($id)
+    {
+        $produit = Produit::findOrFail($id); 
+        return view('produitdetai', compact('produit')); 
+    }
     public function produit()
     {
         $produit = Produit::all();
-        $categories = Categorie::all(); 
-        return view('pages.produit', compact('produit','categories'));
+        $categories = Categorie::all();
+        return view('pages.produit', compact('produit', 'categories'));
     }
     public function create(Request $request)
     {
@@ -42,7 +46,7 @@ class ProduitController extends Controller
     }
     public function update(Request $request)
     {
-        $produit =Produit::find($request->produit_id);
+        $produit = Produit::find($request->produit_id);
         $produit->update([
             'name' => $request->name,
             'description' => $request->description,
@@ -52,5 +56,4 @@ class ProduitController extends Controller
         ]);
         return redirect()->route('produit');
     }
-
 }

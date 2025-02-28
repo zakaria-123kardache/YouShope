@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\ProduitDetaiController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,8 @@ Route::get('contact', function () {
 
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/shop', [ShopController::class, 'shop']);
+Route::get('/produitdetai/{id}', [ProduitController::class, 'show']);
+
 
 
  //================== §! Product !$ =======================//

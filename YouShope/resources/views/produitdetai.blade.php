@@ -19,8 +19,8 @@
         <div>
             <ul id="navbar">
                 <a href="#" id="close"><i class='fa fa-close'></i></a>
-                <li><a href="/">Home</a></li>
-                <li><a class="active" href="/shop">Shop</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active"href="shop.html">Shop</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -34,64 +34,14 @@
         </div>
     </section>
 
-    <section id="page-header">
-        <h2>#stay at home</h2>
-        <p>Lorem Lorem ipsum dolor sit.</p>
-        <a href="#" class="to-top">
-            <i class="fas fa-chevron-up"></i>
-        </a>
-    </section>
-
-    <section id="product1" class="section-p1">
-        <div class="pro-container">
-            <div class="pro" onclick="window.location.href='sproduct.html'">
-                <img src="img/products/f1.jpg" alt="">
-                <div class="des">
-                    <span>Adiddas</span>
-                    <h5>Cotton shirts pure cotton</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$78</h4>
-                </div>
-                <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-            </div>
-
-            <?php foreach ($produit as $produite): ?>
-            {{-- <div class="pro" onclick="window.location.href='/produitdetai/{{ $produite->id }}'"> --}}
-                <div class="pro" onclick="window.location.href='{{ url('/produitdetai/' . $produite->id) }}'">
-                <img src="{{ $produite->photo }}" alt="">
-                <div class="des">
-                    <h5>{{ $produite->name }}</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>{{ $produite->prix }}</h4>
-                </div>
-                <a href="#"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-            </div>
-            <?php endforeach; ?>
-        </div>
-
-    </section>
-
     <section id="prodetails" class="sectio-p1">
         <div class="single-pro-image">
-            <img src="img/products/f1.jpg" width="100%" id="MainImg" alt="">
+            <img src="{{ $produit->photo }}" width="100%" id="MainImg" alt="">
         </div>
 
         <div class="single-pro-details">
-            <h6>Lorem</h6>
-            <h4>Lorem, ipsum dolor.</h4>
-            <h2>$139</h2>
+            <h4>{{ $produit->name }}</h4>
+            <h2>{{ $produit->prix }}$</h2>
             <select>
                 <option >select Size</option>
                 <option >S</option>
@@ -103,23 +53,20 @@
             <input type="number" value="1">
             <button class="normal">Add to cart</button>
             <h4>Product Details</h4>
-            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quis molestiae
-                 ullam distinctio minus quisquam cupiditate vero in laboriosam optio. ipsum dolor sit amet consectetur adipisicing elit. 
-                Magni quo a dignissimos quasi, incidunt quae. Omnis 
-                sapiente beatae totam asperiores nemo laudantium 
-                 doloribus autem culpa enim.
-                 ipsum dolor sit, amet consectetur
-                 adipisicing elit. Maiores non tempore tempora laborum
-                 accusantium fuga, est et laboriosam. Et, tempore.</span>
+            <span>{{ $produit->description }}</span>
         </div>
     </section>
 
-    <section id="pagination" class="section-p1">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-    </section>
+    
 
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+       <div class="pro-container">
+     
+            
+        </div>
+
+    </section>
 
     <section id="newsletter" class="section-p1 section-m1">
         <div class="newstext">
@@ -183,7 +130,7 @@
     </div>
 
     <div class="copyright">
-        <p>@Youshop@</p>
+        <p>c 2022, With ❤ Bhandary ,  Ecommerce Website Template</p>
     </div>
 
    </footer>
@@ -191,4 +138,9 @@
    <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 </html>
+
+
+
+
+
 
