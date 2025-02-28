@@ -24,7 +24,7 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                <li id="lg-bag"><a href="/panier"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
             </ul>
         </div>
         <div id="mobile">
@@ -83,36 +83,6 @@
 
     </section>
 
-    <section id="prodetails" class="sectio-p1">
-        <div class="single-pro-image">
-            <img src="img/products/f1.jpg" width="100%" id="MainImg" alt="">
-        </div>
-
-        <div class="single-pro-details">
-            <h6>Lorem</h6>
-            <h4>Lorem, ipsum dolor.</h4>
-            <h2>$139</h2>
-            <select>
-                <option >select Size</option>
-                <option >S</option>
-                <option >M</option>
-                <option >L</option>
-                <option >XL</option>
-                <option >XXL</option>
-            </select>
-            <input type="number" value="1">
-            <button class="normal">Add to cart</button>
-            <h4>Product Details</h4>
-            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quis molestiae
-                 ullam distinctio minus quisquam cupiditate vero in laboriosam optio. ipsum dolor sit amet consectetur adipisicing elit. 
-                Magni quo a dignissimos quasi, incidunt quae. Omnis 
-                sapiente beatae totam asperiores nemo laudantium 
-                 doloribus autem culpa enim.
-                 ipsum dolor sit, amet consectetur
-                 adipisicing elit. Maiores non tempore tempora laborum
-                 accusantium fuga, est et laboriosam. Et, tempore.</span>
-        </div>
-    </section>
 
     <section id="pagination" class="section-p1">
         <a href="#">1</a>

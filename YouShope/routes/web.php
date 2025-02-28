@@ -30,6 +30,9 @@ Route::get('about', function () {
 Route::get('contact', function () {
     return view('contact');
 });
+Route::get('panier', function () {
+    return view('panier');
+});
 
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/shop', [ShopController::class, 'shop']);
