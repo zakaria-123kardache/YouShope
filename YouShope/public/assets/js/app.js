@@ -67,7 +67,7 @@ function afficherPanier() {
                             <p>${produit.name}</p>
                             <small>prix: ${produit.prix}$</small>
                             <br/>
-                            <a href="#">remove</a>
+                             <a href="#" onclick="removeProduit('${produit.id}'); return false;">remove</a>
                         </div>
                     </div>
                 </td>
@@ -77,6 +77,14 @@ function afficherPanier() {
         `;
         panierTable.innerHTML += row;
     });
+}
+
+function removeProduit(produitId)
+{
+    let panier = JSON.parse(localStorage.getItem("panier")) ;
+    panier = panier.filter((produit) => produit.id !== produitId);
+    localStorage.setItem("panier", JSON.stringify(panier));
+    afficherPanier();
 }
 
 
