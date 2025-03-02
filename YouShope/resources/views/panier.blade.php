@@ -54,13 +54,13 @@
           <th>Quantity</th>
           <th>Subtotal</th>
         </tr>
-        <tr>
+        {{-- <tr>
           <td>
             <div class="cart-info">
-              <img src="img/products/f1.jpg" alt="Tshirt" />
+              <img src="{{ $produit->photo }}" alt="Tshirt" />
               <div>
-                <p>Orange Printed Tshirt</p>
-                <small>Price: $78.00</small>
+                <p>{{ $produit->name }}</p>
+                <small>Price: {{ $produit->prix }}$</small>
                 <br />
                 <a href="#">Remove</a>
               </div>
@@ -68,7 +68,8 @@
           </td>
           <td><input type="number" value="1" /></td>
           <td>$78.00</td>
-        </tr>
+        </tr> --}}
+        <tbody id="panier-items"></tbody>
         
       </table>
 

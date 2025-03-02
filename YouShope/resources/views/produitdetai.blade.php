@@ -19,11 +19,11 @@
         <div>
             <ul id="navbar">
                 <a href="#" id="close"><i class='fa fa-close'></i></a>
-                <li><a href="index.html">Home</a></li>
-                <li><a class="active"href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a class="active"href="/shop">Shop</a></li>
+                <li><a href="/">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
                 <li id="lg-bag"><a href="/panier"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
             </ul>
         </div>
@@ -38,20 +38,22 @@
         <div class="single-pro-image">
             <img src="{{ $produit->photo }}" width="100%" id="MainImg" alt="">
         </div>
-
+    
         <div class="single-pro-details">
             <h4>{{ $produit->name }}</h4>
             <h2>{{ $produit->prix }}$</h2>
             <select>
-                <option >select Size</option>
-                <option >S</option>
-                <option >M</option>
-                <option >L</option>
-                <option >XL</option>
-                <option >XXL</option>
+                <option>select Size</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
             </select>
-            <input type="number" value="1">
-            <button class="normal">Add to cart</button>
+            <input type="number" id="quantite" value="1" min="1">
+            <button class="normal" onclick="ajouterAuPanier('{{ $produit->id }}', '{{ $produit->name }}', '{{ $produit->prix }}', '{{ asset($produit->photo) }}', document.getElementById('quantite').value)">
+                Add to Panier
+            </button>
             <h4>Product Details</h4>
             <span>{{ $produit->description }}</span>
         </div>
