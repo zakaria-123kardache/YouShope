@@ -75,17 +75,8 @@
 
       <div class="total-price">
         <table>
-          <tr>
-            <td>Subtotal</td>
-            <td>$234.00</td>
-          </tr>
-          <tr>
-            <td>Tax</td>
-            <td>$35.00</td>
-          </tr>
-          <tr>
             <td>Total</td>
-            <td>$269.00</td>
+            <td>${grandTotal}$</td>
           </tr>
         </table>
       </div>

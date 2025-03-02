@@ -49,6 +49,7 @@ function ajouterAuPanier(id, name, prix, photo, quantite) {
 
 
 // localstrorig paier 
+let grandTotal = 0;
 
 function afficherPanier() {
 
@@ -58,6 +59,8 @@ function afficherPanier() {
     panierTable.innerHTML = "";
 
     panier.forEach((produit) => {
+        let itemTotal = (parseFloat(produit.prix) * produit.quantite);
+        grandTotal += itemTotal;
         let row = `
             <tr>
                 <td>
@@ -72,11 +75,13 @@ function afficherPanier() {
                     </div>
                 </td>
                 <td><input type="number" value="${produit.quantite}" min="1"></td>
-                <td>$</td>
+                <td>${itemTotal}$</td>
             </tr>
         `;
         panierTable.innerHTML += row;
+        document.querySelector('.total-price td:last-child').innerHTML = `${grandTotal}$`;
     });
+    
 }
 
 function removeProduit(produitId)
