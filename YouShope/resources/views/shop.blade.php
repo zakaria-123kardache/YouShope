@@ -44,25 +44,7 @@
 
     <section id="product1" class="section-p1">
         <div class="pro-container">
-            <div class="pro" onclick="window.location.href='sproduct.html'">
-                <img src="img/products/f1.jpg" alt="">
-                <div class="des">
-                    <span>Adiddas</span>
-                    <h5>Cotton shirts pure cotton</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$78</h4>
-                </div>
-                <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-            </div>
-
             <?php foreach ($produit as $produite): ?>
-            {{-- <div class="pro" onclick="window.location.href='/produitdetai/{{ $produite->id }}'"> --}}
                 <div class="pro" onclick="window.location.href='{{ url('/produitdetai/' . $produite->id) }}'">
                 <img src="{{ $produite->photo }}" alt="">
                 <div class="des">
@@ -80,7 +62,6 @@
             </div>
             <?php endforeach; ?>
         </div>
-
     </section>
 
 

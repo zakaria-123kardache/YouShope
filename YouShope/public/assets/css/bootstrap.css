@@ -1262,3 +1262,136 @@ th:last-child {
     padding-right: 18px;
   }
 }
+
+
+
+/*  */
+/*  */
+#prodetails {
+  display: flex;
+  margin-top: 20px;
+  padding: 40px;
+  gap: 40px;
+}
+
+.single-pro-image {
+  width: 40%;
+  margin-right: 50px;
+}
+
+.single-pro-image img {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.single-pro-image img:hover {
+  transform: scale(1.02);
+}
+
+.single-pro-details {
+  width: 50%;
+  padding-top: 30px;
+}
+
+.single-pro-details h4 {
+  font-size: 26px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.single-pro-details h2 {
+  font-size: 32px;
+  color: #088178;
+  margin-bottom: 25px;
+}
+
+.single-pro-details select {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+  outline: none;
+  cursor: pointer;
+}
+
+.single-pro-details input {
+  width: 70px;
+  height: 45px;
+  padding-left: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  outline: none;
+}
+
+.single-pro-details button.normal {
+  background-color: #088178;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.single-pro-details button.normal:hover {
+  background-color: #065f58;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.single-pro-details h4:nth-of-type(2) {
+  font-size: 20px;
+  margin: 30px 0 10px 0;
+  color: #1a1a1a;
+}
+
+.single-pro-details span {
+  line-height: 1.6;
+  color: #606063;
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 799px) {
+  #prodetails {
+      flex-direction: column;
+      padding: 20px;
+  }
+
+  .single-pro-image {
+      width: 100%;
+      margin-right: 0;
+  }
+
+  .single-pro-details {
+      width: 100%;
+      padding-top: 20px;
+  }
+}
+
+@media (max-width: 477px) {
+  #prodetails {
+      padding: 15px;
+  }
+
+  .single-pro-details h4 {
+      font-size: 22px;
+  }
+
+  .single-pro-details h2 {
+      font-size: 26px;
+  }
+
+  .single-pro-details select {
+      width: 100%;
+  }
+}

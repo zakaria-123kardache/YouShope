@@ -34,30 +34,40 @@
         </div>
     </section>
 
-    <section id="prodetails" class="sectio-p1">
+    <section id="prodetails" class="section-p1">
         <div class="single-pro-image">
-            <img src="{{ $produit->photo }}" width="100%" id="MainImg" alt="">
+            <img src="{{ asset($produit->photo) }}" width="100%" id="MainImg" alt="{{ $produit->name }}">
         </div>
     
         <div class="single-pro-details">
-            <h4>{{ $produit->name }}</h4>
-            <h2>{{ $produit->prix }}$</h2>
-            <select>
-                <option>select Size</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-            </select>
-            <input type="number" id="quantite" value="1" min="1">
-            <button class="normal" onclick="ajouterAuPanier('{{ $produit->id }}', '{{ $produit->name }}', '{{ $produit->prix }}', '{{ asset($produit->photo) }}', document.getElementById('quantite').value)">
-                Add to Panier
-            </button>
-            <h4>Product Details</h4>
-            <span>{{ $produit->description }}</span>
+            <h4 class="product-title">{{ $produit->name }}</h4>
+            <h2 class="product-price">{{ $produit->prix }}$</h2>
+            
+            <div class="product-options">
+                <select class="size-select">
+                    <option disabled selected>Select Size</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                </select>
+                
+                <div class="quantity-wrapper">
+                    <input type="number" id="quantite" value="1" min="1">
+                    <button class="normal" onclick="ajouterAuPanier('{{ $produit->id }}', '{{ $produit->name }}', '{{ $produit->prix }}', '{{ asset($produit->photo) }}', document.getElementById('quantite').value)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+    
+            <div class="product-description">
+                <h4>Product Details</h4>
+                <span>{{ $produit->description }}</span>
+            </div>
         </div>
     </section>
+    
 
     
 
