@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('adresses', function (Blueprint $table) {
-            $table->id();
-            $table->string('street');
-            $table->string('house');
-            $table->string('city');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
+        Schema::table('commandes', function (Blueprint $table) {
+            //
+            $table->unsignedBigInteger('payment_id');
+            $table->foreign('payment_id')->references('id')->on('payments');
+
         });
     }
 
@@ -31,6 +28,11 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adresses');
+        Schema::table('commandes', function (Blueprint $table) {
+            //
+            $table->dropColumn('payment_id');
+            
+
+        });
     }
 };
