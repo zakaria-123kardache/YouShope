@@ -80,6 +80,15 @@
           </tr>
         </table>
       </div>
+      <div>
+
+        <a href="/checkout">
+          <button style="" >
+            Checkout
+          </button>
+        
+        </a>
+      </div>
     </div>
 
     <section id="form-details">

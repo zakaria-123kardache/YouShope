@@ -33,6 +33,9 @@ Route::get('contact', function () {
 Route::get('panier', function () {
     return view('panier');
 });
+Route::get('checkout', function () {
+    return view('checkout');
+});
 
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/shop', [ShopController::class, 'shop']);
