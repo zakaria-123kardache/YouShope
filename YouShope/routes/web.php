@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ProduitDetaiController;
@@ -58,3 +59,8 @@ Route::get('categorie',[CategorieController::class, 'categorie'])->name('categor
 Route::post('/categorie', [CategorieController::class, 'create'])->name('categorie');
 Route::delete('/categorie/{id}', [CategorieController::class, 'delete'])->name('categorie.delete');
 Route::post('/categorie/update/{id}', [CategorieController::class, 'update'])->name('categorie.update');
+
+
+//================== §! checkout !$ ====================//
+//=======================================================//
+Route::post('/checkout', [CommandeController::class, 'checkout'])->name('checkout');

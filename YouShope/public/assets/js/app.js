@@ -42,7 +42,7 @@ function ajouterAuPanier(id, name, prix, photo, quantite) {
         quantite: parseInt(quantite)
     };
 
-    let panier = JSON.parse(localStorage.getItem("panier")) ;
+    let panier = JSON.parse(localStorage.getItem("panier")) || [];;
     panier.push(produit);
     localStorage.setItem("panier", JSON.stringify(panier));
 }
@@ -54,7 +54,7 @@ let grandTotal = 0;
 function afficherPanier() {
 
     let panierTable = document.getElementById("panier-items");
-    let panier = JSON.parse(localStorage.getItem("panier")) ;
+    let panier = JSON.parse(localStorage.getItem("panier"));
 
     panierTable.innerHTML = "";
 
@@ -81,17 +81,51 @@ function afficherPanier() {
         panierTable.innerHTML += row;
         document.querySelector('.total-price td:last-child').innerHTML = `${grandTotal}$`;
     });
-    
+
 }
 
-function removeProduit(produitId)
-{
-    let panier = JSON.parse(localStorage.getItem("panier")) ;
+function removeProduit(produitId) {
+    let panier = JSON.parse(localStorage.getItem("panier"));
     panier = panier.filter((produit) => produit.id !== produitId);
     localStorage.setItem("panier", JSON.stringify(panier));
     afficherPanier();
 }
-
-
 document.addEventListener("DOMContentLoaded", afficherPanier);
 
+
+function validerCommande() {
+    let panier = JSON.parse(localStorage.getItem("panier"));
+    if (panier.length === 0) {
+        alert("Panier vide");
+        return;
+    }
+
+    fetch('/checkout', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content') 
+        },
+        body: JSON.stringify({ produits: panier })
+    })
+    .then(res => {
+     res.headers.get('content-type');
+
+        if (!res.ok) {
+            return res.text().then(text => {
+                console.error('Error response:', text);
+                throw new Error(text || 'Erreur lors de la commande');
+            });
+        }
+        return res.json();
+    })
+    .then(data => {
+        alert(data.message);
+        localStorage.removeItem("panier");
+        window.location.href = "/checkout";
+    })
+    .catch(error => {
+        console.error("Erreur détaillée:", error);
+        alert("Une erreur s'est produite lors de la commande: " + error.message);
+    });
+}

@@ -11,6 +11,8 @@
     />
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <script src="https://use.fontawesome.com/dfba0bb4d8.js"></script>
   </head>
   <body>
@@ -82,12 +84,8 @@
       </div>
       <div>
 
-        <a href="/checkout">
-          <button style="" >
-            Checkout
-          </button>
-        
-        </a>
+        <button onclick="validerCommande()">Checkout</button>
+
       </div>
     </div>
 
