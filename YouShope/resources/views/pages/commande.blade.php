@@ -140,6 +140,7 @@
                                         <th scope="col">date</th>
                                         <th scope="col">prixtotal</th>
                                         <th scope="col">user</th>
+                                        <th scope="col">paymenet_id</th>
                                         <th scope="col"></th>
                                         <th scope="col" class="">Action</th>
                                         <th></th>
@@ -147,27 +148,30 @@
                                 </thead>
                                 <tbody>
                                     <!--  -->
-
+                                    <?php foreach ($commande as $commandee): ?>
                                     <tr>
                                         <td>
-                                            <a class="text-heading font-semibold" href="#"> 1 </a>
+                                            <a class="text-heading font-semibold" href="#"> <?= $commandee->id ?>  </a>
                                         </td>
 
 
                                         <td>
-                                            <a class="text-heading font-semibold">encoure</a>
+                                            <a class="text-heading font-semibold"><?= $commandee->status ?> </a>
                                         </td>
                                         <td>
-                                            <a class="text-heading font-semibold"> 2025-03-04 23:45:09 </a>
+                                            <a class="text-heading font-semibold"> <?= $commandee->date ?>  </a>
                                         </td>
 
                                         <td>
                                             <a class="text-heading font-semibold">
-                                                213.00 $
+                                              <?= $commandee->prixtotal ?> 
                                             </a>
                                         </td>
                                         <td>
-                                            <a class="text-heading font-semibold"> zake </a>
+                                            <a class="text-heading font-semibold"> 7 </a>
+                                        </td>
+                                        <td>
+                                            <a class="text-heading font-semibold"> paymenet_id </a>
                                         </td>
                                         <td>
                                             <a class="text-heading font-semibold"> </a>
@@ -176,7 +180,10 @@
 
                                         <td class="text-start">
                                             <a href="#" class="btn d-inline-flex btn-sm btn-warning mx-1"
-                                            data-bs-toggle="modal" data-bs-target="#editStatusModal">
+                                            data-bs-toggle="modal" data-bs-target="#editStatusModal"
+                                            onclick="loadStatusData(this)"
+                                            data-id="<?= htmlspecialchars($commandee->id) ?>"
+                                            data-name="<?= htmlspecialchars($commandee->status) ?>">
                                                 <span class="pe-2">
                                                     <i class="bi bi-pencil"></i>
                                                 </span>
@@ -184,14 +191,7 @@
                                             </a>
                                         </td>
                                     </tr>
-
-
-
-
-
-
-
-                                    <!--  -->
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -238,14 +238,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-                    <div class="mb-3">
+                  <form method="get" action="{{ route('commande.update', ['id' => $commandee->id]) }}"> 
+                  @csrf
+                  <input type="hidden" name="commande_id" value="{{$commandee->id}}" id="commande_id">
+                    <div class="mb-3" id="status">
                         <select class="form-select" aria-label="GFG Select">
                             <option value="GFG1"selected>encoure</option>
                             <option value="GFG2">expédiée</option>
                             <option value="GFG3">livrée</option>
                         </select>
-
                     </div>
 
                     <button type="submit" class="btn btn-primary">submit</button>
@@ -261,7 +262,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <script src="script.js"></script>
+    <script src="">
+      function loadStatusData(element) {
+            document.getElementById('commande_id').value = element.getAttribute('data-id');
+            document.getElementById('status').value = element.getAttribute('data-status');
+           
+        }
+    </script>
 </body>
 
 </html>

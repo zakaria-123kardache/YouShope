@@ -52,7 +52,7 @@ Route::delete('/produit/{id}', [ProduitController::class, 'delete'])->name('prod
 Route::post('/produit/update/{id}', [ProduitController::class, 'update'])->name('produit.update');
 
 
- //================== §! categorie !$ ====================//
+//================== §! categorie !$ ====================//
 //=======================================================//
 
 Route::get('categorie',[CategorieController::class, 'categorie'])->name('categorie');
@@ -67,3 +67,4 @@ Route::post('/checkout', [CommandeController::class, 'checkout'])->name('checkou
 //================== §! commande !$ ====================//
 //=======================================================//
 Route::get('/commande',[CommandeController::class, 'commande'])->name('commande');
+Route::post('/commande/update/{id}', [CommandeController::class, 'update'])->name('commande.update');

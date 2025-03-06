@@ -7,6 +7,7 @@ use App\Models\Produit;
 use App\Models\ProduitCommande;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class CommandeController extends Controller
@@ -71,5 +72,19 @@ class CommandeController extends Controller
         $commande = Commande::find($id);
         $commande->annulerCommande();
         return redirect()->route('');
+    }
+
+
+    public function update(Request $request)
+    {
+        // echo $request->commande_id;
+        // die();
+        $commande = Commande::find($request->commande_id);
+        // dd($request->commande_id);
+        // dd(DB::table('commandes')->find($request->commande_id));
+        $commande->update([
+            'status' =>$request->status,
+        ]);
+        return redirect()->route('commande');
     }
 }
