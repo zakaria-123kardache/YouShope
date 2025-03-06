@@ -128,6 +128,11 @@
                                 <i class="bi bi-bar-chart"></i> Categorie
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="./commande">
+                                <i class="bi bi-bar-chart"></i> Commande
+                            </a>
+                        </li>
                     </ul>
                     <!-- Divider -->
                     <hr class="navbar-divider my-5 opacity-20">

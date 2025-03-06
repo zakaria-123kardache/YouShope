@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Log;
 
 class CommandeController extends Controller
 {
-    //
+    
+    public function commande()
+    {
+        $commande = commande::all();
+        return view('pages.commande', compact('commande'));
+    }
 
     public function checkout(Request $request)
     {

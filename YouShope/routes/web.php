@@ -64,3 +64,6 @@ Route::post('/categorie/update/{id}', [CategorieController::class, 'update'])->n
 //================== §! checkout !$ ====================//
 //=======================================================//
 Route::post('/checkout', [CommandeController::class, 'checkout'])->name('checkout');
+//================== §! commande !$ ====================//
+//=======================================================//
+Route::get('/commande',[CommandeController::class, 'commande'])->name('commande');
